@@ -1,7 +1,7 @@
 const getLabels = () => {
   const companyName = document.querySelector("#company-name").value;
   const authKey = document.querySelector("#auth-key").value;
-  fetch(`https://sector-tagging.appspot.com?companyName=${companyName}`, {
+  fetch(`${env.server}?companyName=${companyName}`, {
     headers: {
       authorization: `Bearer ${authKey}`
     }
@@ -27,7 +27,7 @@ const remove = () => {
   event.target.parentElement.remove();
   const companyName = document.querySelector("#company-name").value;
   const authKey = document.querySelector("#auth-key").value;
-  fetch("https://sector-tagging.appspot.com/remove", {
+  fetch(`${env.server}/remove`, {
     method: "POST",
     mode: "no-cors",
     headers: {
